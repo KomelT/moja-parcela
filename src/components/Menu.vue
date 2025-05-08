@@ -5,7 +5,7 @@ import Text from "./Text.vue";
 import Button from './Button.vue';
 import { ko } from "../assets/ko"
 import { ref, type Ref } from 'vue'
-import { Marker, type ControlPosition, type LngLatLike } from "maplibre-gl";
+import { Marker, Popup, type ControlPosition, type LngLatLike } from "maplibre-gl";
 import { useStore } from "../stores/store";
 
 type MenuProps = {
@@ -65,6 +65,7 @@ async function getPlot() {
   });
 
   store.markerLatLng = center;
+  currentMarker.value?.setPopup(new Popup({ offset: 25 }).setText(`Koordinati: ${center[1]}, ${center[0]}`))
   currentMarker.value?.setLngLat(center);
 }
 
