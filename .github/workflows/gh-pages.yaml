@@ -35,7 +35,7 @@ jobs:
         uses: actions/configure-pages@v5
         
       - name: Install dependencies
-        run: deno cache main.ts
+        run: deno cache main.ts && deno install
         
       - name: Build
         run: deno task build
